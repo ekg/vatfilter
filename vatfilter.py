@@ -31,6 +31,9 @@ for line in sys.stdin:
                     if a != b:
                         affectedtranscripts += 1
                 VAchange.append(str(affectedtranscripts))
-    info = "VAchange=" + ",".join(VAchange) + ";" + info
-    fields[7] = info
-    print "\t".join(fields)
+    if VAchange:
+        info = "VAchange=" + ",".join(VAchange) + ";" + info
+        fields[7] = info
+        print "\t".join(fields)
+    else:
+        print line.strip()
