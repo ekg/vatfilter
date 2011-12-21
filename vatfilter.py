@@ -27,7 +27,7 @@ for line in sys.stdin:
                 # split out the AA sequence change diagram(s)
                 # using a regex
                 affectedtranscripts = 0
-                for a, b in [x.split('->') for x in re.findall("_(\w?->\w)", record)]:
+                for a, b in re.findall("([a-zA-Z]+)->([a-zA-Z]+)", record):
                     if a != b:
                         affectedtranscripts += 1
                 VAchange.append(str(affectedtranscripts))
